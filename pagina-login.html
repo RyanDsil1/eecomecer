@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #header {
+            background-image: url("img/banner.png");
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            padding: 10px;
+            text-align: right;
+            color: white;
+            object-position: top;
+        }
+        h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: small;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color:MediumVioletRed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+
+        #form-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+    padding: 10px;
+    background-color: #894b4b;
+    color: #fff;
+    border: dotted;
+    cursor: pointer;
+    border-radius:10px;
+    border-style: dotted;
+  border-color: purple;
+  position: bottom;
+}
+
+button:hover {
+    background-color: #777;
+}
+        #register-form {
+            display: none;
+        }
+    </style>
+    <title>Login ou Cadastro</title>
+</head>
+<body>
+    <div id="header">
+         <header>
+            <a href="index.html"><button>pagina inicial</button></a>
+        <a href="carrinho.html"><button>Carrinho de Compras</button></a>
+        <a href="contato.html"><button>Contato</button></a>
+        <h1>TechBlast</h1>
+    </header>
+    </div>
+
+    <div id="form-container">
+        <h2 id="form-title">Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+
+        <form id="register-form">
+            <input type="text" id="new-username" placeholder="Novo Usuário" required>
+            <input type="text" id="new-email" placeholder="Novo Email" required>
+            <input type="password" id="new-password" placeholder="Nova Senha" required>
+            <input type="text" id="new-cpf" placeholder="Novo CPF" required>
+            <input type="text" id="new-cep" placeholder="Novo CEP" required>
+            <button type="button" onclick="register()">Cadastrar</button>
+        </form>
+
+        <p id="register-prompt">Não tem conta? <button onclick="toggleForm()">Crie uma agora!</button></p>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const formTitle = document.getElementById('form-title');
+            const registerPrompt = document.getElementById('register-prompt');
+
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                formTitle.textContent = 'Cadastro';
+                registerPrompt.style.display = 'none';
+            } else {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                formTitle.textContent = 'Login';
+                registerPrompt.style.display = 'block';
+            }
+        }
+
+        function register() {
+            // Lógica para processar o cadastro
+            alert('Cadastro realizado com sucesso! Redirecionando para a página principal.');
+            window.location.href = 'index.html';
+        }
+
+        function login() {
+            // Lógica para processar o login
+            alert('Login realizado com sucesso! Redirecionando para a página principal.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

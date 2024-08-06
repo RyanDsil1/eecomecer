@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Adicione o seu CSS aqui */
+
+        /* ... */
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: right;
+            color: white;
+        }
+        h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: small;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color:MediumVioletRed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .cart {
+    float: right;
+    margin-top: 10px;
+}
+
+.cart button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.cart button:hover {
+    background-color: #555;
+}
+
+#cart-container {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#cart-container p {
+    margin: 0;
+}
+
+#carrinho {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #carrinho ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #carrinho li {
+            margin-bottom: 10px;
+        }
+
+        #carrinho button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Seu E-Commerce de Componentes de Computadores</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" /> 
+</head>
+<body>
+    <header>
+   
+        <h1>TechBlast</h1>
+                                                  <section id="carrinho">
+                                                     <h2>Carrinho de Compras</h2>
+      
+                                                     <a href="index.html"><button>pagina inicial</button></a>
+    <a href="pagina-login.html"><button>Fazer Login</button></a>
+           
+            <a href="contato.html"><button>Contato</button></a>  
+                                                            <ul id="itens-carrinho"></ul>
+                                                     <p>Total: R$ <span id="total">0.00</span></p>
+                                                     <button onclick="limparCarrinho()">Limpar Carrinho</button>
+                                                     <button onclick="simularBomba()">Simular compra</button>
+                                                  </section>
+    
+        <section>
+            <h2>Produtos Disponíveis</h2>
+            <ul id="Produtos">
+    </header>
+
+    <div class="container">
+        <!-- Conteúdo da sua página -->
+
+        <div class="Produto" id="product1">
+            <img src="img/rxt4060.jpg">
+            <h2>Placa de Video Asus GeForce RTX 4060 Ti Dual White OC Edition 8GB</h2>
+            <p> R$ 3.099,99</p>
+            <button onclick="adicionarAoCarrinho('Produto 1', 3.099,99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="Produto" id="product2">
+            <img src="img/gabinete 1.jpg" alt="">
+            <h2>Gabinete Gamer DT3 Hyper View, Lateral e Frontal de Vidro, Preto, 13950-8/h2>
+            <p> R$ 279,99</p>
+            <button onclick="adicionarAoCarrinho('Produto 2', 279,99)">Adicionar ao Carrinho</button>
+
+        <!-- Adicione mais produtos conforme necessário -->
+    </div>
+    <div class="Produto" id="product2">
+        <img src="img/fonte1.jpg" alt="">
+        <h2>Fonte Cooler Master MWE 650 Bronze V2, 650W, 80 Plus Bronze, Preto, MPE-6501-ACAAW-BBR/h2>
+        <p> R$ 339,99</p>
+        <button onclick="adicionarAoCarrinho('Produto 3', 339,99)">Adicionar ao Carrinho</button>
+
+    <!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/ventoinha1.jpg" alt="">
+    <h2>Ventoinha Cooler Master Masterfan MF120 Halo 2, RGB, 120mm, Preto, MFL-B2DN-21NP2-R2</h2>
+    <p> R$ 89,90</p>
+    <button onclick="adicionarAoCarrinho('Produto 4', 89,90)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/cabo extensor.jpg" alt="">
+    <h2>Cabo Extensor Premium 24P Pichau PS100, RGB, 240mm, Branco, PCH-PS100-24PRGBWHT</h2>
+    <p> R$ 119,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 5', 119,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/fone1.jpg" alt="">
+    <h2>Fone de Ouvido Intra Auricular Edifier W180T, Bluetooth, Preto, W180T-BK</h2>
+    <p> R$ 194,00</p>
+    <button onclick="adicionarAoCarrinho('Produto 6', 194,90)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/monitor2.jpg" alt="">
+    <h2>Monitor Zinnia Delfos PRO 24, 24 Pol, IPS, FHD, sRGB 104, 75Hz, FreeSync, VGA/HDMI.</h2>
+    <p> R$ 684,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 7', 684,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/cadeira1.jpg" alt="">
+    <h2> Cadeira DT3 Office Vita, Preto, 13904-7</h2>
+    <p> R$ 529,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 8', 529,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/combo.jpg" alt="">
+    <h2> COMBO GAMER TGT ARIETE 4X1, RAINBOW, TECLADO ABNT, MOUSE 1600DPI, MOUSEPAD PEQUENO, HEADSET DRIVERS 40MM</h2>
+    <p> R$ 90,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 9', 90,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/teclado.jpg" alt="">
+    <h2> Teclado Mecanico Gamer TGT Sherman Compacto, Rainbow, ABNT2, Switch Azul, Preto, TGT-SHTKL-RBW01</h2>
+    <p> R$ 79,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 10', 79,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/placa mae.jpg" alt="">
+    <h2>Placa Mae Asus TUF GAMING B550M-PLUS DDR4 Socket AM4 Chipset AMD B550</h2>
+    <p> R$ 899,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 11', 899,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/placa mae2.jpg" alt="">
+    <h2>Placa Mae Asus TUF GAMING B550M-PLUS DDR4 Socket AM4 Chipset AMD B550</h2>
+    <p> R$ 497,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 12', 497,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/pc1.jpg ">
+    <h2>Computador Pichau Highflyer, AMD Ryzen 9 7900X, GeForce RTX 4080 16GB, 32GB DDR5, SSD M.2 1TB</h2>
+    <p> R$ 15.849,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 13', 15.849,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/pc2.jpg ">
+    <h2>Computador Pichau Highflyer, AMD Ryzen 9 7900X3D, GeForce RTX 4080 16GB, 64GB DDR5, SSD M.2 2TB</h2>
+    <p> R$ 19.299,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 14', 19.292,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/pc3.jpg ">
+    <h2>Computador Pichau Highflyer, AMD Ryzen 9 7900X3D, GeForce RTX 4080 16GB, 64GB DDR5, SSD M.2 2TB</h2>
+    <p> R$ 2.349,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 15', 2.349,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+<div class="Produto" id="product2">
+    <img src="img/pc 4.jpg ">
+    <h2>Computador Pichau Highflyer, AMD Ryzen 9 7900X3D, GeForce RTX 4080 16GB, 64GB DDR5, SSD M.2 2TB</h2>
+    <p> R$ 1.198,99</p>
+    <button onclick="adicionarAoCarrinho('Produto 16', 1.198,99)">Adicionar ao Carrinho</button>
+
+<!-- Adicione mais produtos conforme necessário -->
+</div>
+ 
+    <script>
+
+         // Variáveis para armazenar o estado do carrinho
+         let carrinho = [];
+        let total = 0;
+
+        // Função para adicionar um item ao carrinho
+        function adicionarAoCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            total += preco;
+
+            // Atualiza a exibição do carrinho
+            atualizarCarrinho();
+        }
+
+        // Função para atualizar a exibição do carrinho
+        function atualizarCarrinho() {
+            const itensCarrinho = document.getElementById('itens-carrinho');
+            const totalSpan = document.getElementById('total');
+
+            // Limpa a exibição do carrinho
+            itensCarrinho.innerHTML = '';
+
+            // Adiciona os itens ao carrinho
+            carrinho.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+                itensCarrinho.appendChild(li);
+            });
+
+            // Atualiza o total
+            totalSpan.textContent = total.toFixed(2);
+        }
+
+        // Função para limpar o carrinho
+        function limparCarrinho() {
+            carrinho = [];
+            total = 0;
+
+            // Atualiza a exibição do carrinho
+            atualizarCarrinho();
+        }
+
+        // Função para simular uma "bomba" (limpa o carrinho)
+        function simularBomba() {
+            limparCarrinho();
+            alert('compra feita!');
+        }
+    </script>
+</body>
+</html>
